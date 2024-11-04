@@ -1,21 +1,17 @@
-from flask import Blueprint, render_template, request, redirect, url_for
-from .models import db, User, Course
-from flask_login import login_user, logout_user, login_required
+# app/routes.py
+from flask import render_template, redirect, url_for, flash, request
+from . import db
+from .models import User
+from .forms import RegistroForm
+from flask_login import login_user, logout_user
 
-main = Blueprint('main', __name__)
-
-@main.route('/login', methods=['GET', 'POST'])
-def login():
-    # Lógica para el login
-    pass
-
-@main.route('/register', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
-    # Lógica para el registro
-    pass
-
-@main.route('/courses', methods=['GET', 'POST'])
-@login_required
-def courses():
-    # Lógica para gestionar cursos
-    pass
+    form = RegistroForm()
+    if form.validate_on_submit():
+        new_user = User(username=form.username.data, password=form.password.data)
+        db.session.add(new_user)
+        db.session.commit()
+        flash('Usuario registrado con éxito.')
+        return redirect(url_for('login'))
+    return render_template('register.html', form=form)

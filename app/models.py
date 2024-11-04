@@ -1,17 +1,21 @@
+# app/models.py
 from . import db
 from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
+    __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(150), nullable=False, unique=True)
+    username = db.Column(db.String(150), unique=True, nullable=False)
     password = db.Column(db.String(150), nullable=False)
 
-class Course(db.Model):
+class Curso(db.Model):
+    __tablename__ = 'cursos'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(150), nullable=False)
-    content = db.Column(db.Text, nullable=True)
+    nombre = db.Column(db.String(150), nullable=False)
+    descripcion = db.Column(db.String(500), nullable=True)
 
-class Student(db.Model):
+class Estudiante(db.Model):
+    __tablename__ = 'estudiantes'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(150), nullable=False)
-    course_id = db.Column(db.Integer, db.ForeignKey('course.id'), nullable=False)
+    nombre = db.Column(db.String(150), nullable=False)
+    curso_id = db.Column(db.Integer, db.ForeignKey('cursos.id'), nullable=False)
