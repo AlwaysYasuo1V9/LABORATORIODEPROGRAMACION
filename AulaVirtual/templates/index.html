@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e7e7e7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffa600;
+            padding: 20px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        .materias-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .materia-panel {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .materia-panel img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .materia-panel h3 {
+            color: #ffcc00;
+            margin-top: 10px;
+        }
+        .materia-panel p {
+            color: #888;
+        }
+        .logout-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 10px;
+            background-color: #ffcc00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .logout-btn:hover {
+            background-color: #e6b800;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+
+    <div class="materias-container">
+        {% for materia in materias %}
+            <div class="materia-panel">
+                <!-- Usamos url_for para generar la ruta a la imagen estática -->
+                <img src="{{ url_for('static', filename='aula.png') }}" alt="Imagen de salón de clases">
+                <h3>{{ materia }}</h3>
+                <p>Descripción de la materia</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <form action="/logout" method="POST">
+        <button class="logout-btn" type="submit">Cerrar sesión</button
