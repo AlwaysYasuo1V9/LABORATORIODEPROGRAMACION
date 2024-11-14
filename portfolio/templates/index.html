@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Bienvenido a mi portfolio</h2>
-<p>Aquí encontrarás información sobre mí, mis proyectos y más.</p>
+<div style="display: flex; align-items: center;">
+    <img src="{{ url_for('static', filename='images/lucas.png') }}" alt="Lucas Ramos" style="width: 150px; height: auto; margin-right: 20px;">
+    <div>
+        <h2>Lucas Ramos</h2>
+        <p>Desarrollador web con manejo de:</p>
+    </div>
+</div>
 {% endblock %}
