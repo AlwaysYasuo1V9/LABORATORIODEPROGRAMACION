@@ -6,14 +6,14 @@ bp = Blueprint('main', __name__)
 def index():
     projects = [
         {
-            'title': 'Project 1',
-            'description': 'A web application built with Flask',
-            'image': 'project1.jpg'
+            'title': 'Aula virtual',
+            'description': 'Este es un proyecto que consiste en hacer un aula virtual que podria ser utilizada por alguna institucion ya sea como alumno o profesor',
+            'image': 'pepee.png'
         },
         {
-            'title': 'Project 2',
-            'description': 'Mobile app development',
-            'image': 'project2.jpg'
+            'title': 'Generador de laberintos',
+            'description': 'Este proyecto consiste en un algoritmo que crea laberintos de forma aleatoria que siempre tienen entrada y salida, que podria ser utilizado para algun videojuego',
+            'image': 'laberinto.png'
         }
     ]
     return render_template('index.html', title='Portfolio', projects=projects)
