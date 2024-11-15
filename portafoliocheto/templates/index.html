@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="profile-container">
+        <div class="profile-picture-container">
+            <img src="{{ url_for('static', filename='images/lucas.png') }}" alt="Lucas Ramos" class="profile-picture">
+        </div>
+        <h1 class="profile-name">Lucas Ramos</h1>
+        <p class="hero-text">Soy un programador full sintacc</p>
+    </div>
+</section>
+
+<section class="skills">
+    <h3>Mis Skills</h3>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <div class="skill-icon">🌐</div>
+            <h4>HTML/CSS</h4>
+            <div class="skill-bar"><div class="skill-progress"></div></div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">⚛️</div>
+            <h4>React</h4>
+            <div class="skill-bar"><div class="skill-progress"></div></div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">🐍</div>
+            <h4>Python</h4>
+            <div class="skill-bar"><div class="skill-progress"></div></div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">🗄️</div>
+            <h4>MySQL</h4>
+            <div class="skill-bar"><div class="skill-progress"></div></div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">📜</div>
+            <h4>JavaScript</h4>
+            <div class="skill-bar"><div class="skill-progress"></div></div>
+        </div>
+        <div class="skill-card">
+            <div class="skill-icon">🎯</div>
+            <h4>C#</h4>
+            <div class="skill-bar"><div class="skill-progress"></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="projects">
+    <h3>My Projects</h3>
+    <div class="project-grid">
+        {% for project in projects %}
+        <div class="project-card">
+            <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}">
+            <h4>{{ project.title }}</h4>
+            <p>{{ project.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
