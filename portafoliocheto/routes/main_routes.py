@@ -8,7 +8,8 @@ def index():
         {
             'title': 'Aula virtual',
             'description': 'Este es un proyecto que consiste en hacer un aula virtual que podria ser utilizada por alguna institucion ya sea como alumno o profesor',
-            'image': 'pepee.png'
+            'image': 'aulavirtual.png'
+            
         },
         {
             'title': 'Generador de laberintos',
