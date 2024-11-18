@@ -9,7 +9,6 @@ app.config['SECRET_KEY'] = 'your-secret-key-here'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///portfolio.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Initialize extensions
 db.init_app(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager()
@@ -20,14 +19,14 @@ login_manager.login_view = 'auth.login'
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# Register blueprints
+
 app.register_blueprint(main_routes.bp)
 app.register_blueprint(auth_routes.bp, url_prefix='/auth')
 
-# Create database and initial user
+
 with app.app_context():
     db.create_all()
-    # Create initial user if it doesn't exist
+   
     if not User.query.filter_by(username='lucas@gmail.com').first():
         hashed_password = bcrypt.generate_password_hash('123456').decode('utf-8')
         new_user = User(username='lucas@gmail.com', password=hashed_password)
