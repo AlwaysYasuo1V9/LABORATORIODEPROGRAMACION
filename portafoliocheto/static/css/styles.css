@@ -364,3 +364,31 @@ button:hover {
     background: var(--neon-pink);
     box-shadow: 0 0 20px var(--neon-pink);
 }
+/*////////*/
+
+.github-link {
+    text-align: center;
+    margin: 5% 0;
+}
+
+.github-link h3 {
+    margin-bottom: 1.5rem; /* Espacio debajo del título */
+}
+
+.github-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff0000;
+    background-color: #000000;
+    border: 3px solid #ff0000;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.github-btn:hover {
+    background-color: #24292e;
+    transform: scale(1.1);
+}
