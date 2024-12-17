@@ -1,0 +1,6 @@
+<h1>Agregar Nuevo Ítem</h1>
+<form method="POST">
+  {{ form.hidden_tag() }}
+  {{ form.name.label }} {{ form.name() }}
+  {{ form.submit() }}
+</form>

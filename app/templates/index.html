@@ -1,0 +1,11 @@
+<h1>Bienvenido, {{ current_user.username }}</h1>
+<a href="{{ url_for('create') }}">Agregar Nuevo</a>
+<a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+<ul>
+  {% for item in items %}
+    <li>{{ item.name }} 
+      <a href="{{ url_for('update', id=item.id) }}">Editar</a>
+      <a href="{{ url_for('delete', id=item.id) }}">Eliminar</a>
+    </li>
+  {% endfor %}
+</ul>
